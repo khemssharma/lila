@@ -84,7 +84,7 @@ final class LilaComponents(
     c.result
 
   val httpFilters = Seq(
-    lila.web.HttpFilter(env.net, lila.security.Mobile.LichessMobileUa.parse)
+        new lila.web.HttpFilter(env.net, req => lila.security.Mobile.LichessMobileUa.parse(req))
   )
 
   override lazy val httpErrorHandler =
